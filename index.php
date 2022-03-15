@@ -1,6 +1,7 @@
 <?php
 include "./include/head.php";
 include "./include/nav.php";
+session_start();
 ?>
 
 <main>
@@ -22,7 +23,7 @@ include "./include/nav.php";
             <?php
             include "./php/connexionBdd.php";
             $req = $pdo->query("SELECT id, article_title, article_picture, article_note, article_difficulty  FROM articles ");
-            while($data = $req->fetch()) {
+            while ($data = $req->fetch()) {
                 echo "
                     <div class='card'>
                     <div class='cardImg'>
@@ -36,76 +37,76 @@ include "./include/nav.php";
                         </div>
                         <div class='cardNote'>";
 
-                        switch($data->article_note) {
-                            case 1:
-                                echo "<i class='fa-solid fa-star'></i>";
-                                break;
-                            case 2:
-                                echo "
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                ";
-                                break;
-                            case 3:
-                                echo "
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                ";
-                                break;
-                            case 4:
-                                echo "
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                ";
-                                break;
-                            case 5:
-                                echo "
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                    <i class='fa-solid fa-star'></i>
-                                ";
-                                break;
-                            default:
-                                echo "<i class='fa-solid fa-star'></i>";
-                        }
+                switch ($data->article_note) {
+                    case 1:
+                        echo "<i class='fa-solid fa-star'></i>";
+                        break;
+                    case 2:
+                        echo "
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                            ";
+                        break;
+                    case 3:
+                        echo "
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                            ";
+                        break;
+                    case 4:
+                        echo "
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                            ";
+                        break;
+                    case 5:
+                        echo "
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                            ";
+                        break;
+                    default:
+                        echo "<i class='fa-solid fa-star'></i>";
+                }
 
-                        echo "    
+                echo "    
                             </div>
                             <div class='cardBottom'>
                                 <div class='cardDifficulte'>";
-                        switch($data->article_difficulty) {
-                            case 1:
-                                echo "<p>Très facile</p>";
-                                break;
-                            case 2:
-                                echo "<p>Facile</p>";
-                                break;
-                            case 3:
-                                echo "<p>Moyen</p>";
-                                break;
-                            case 4:
-                                echo "<p>Difficile</p>";
-                                break;
-                            case 5:
-                                echo "<p>Très difficile</p>";
-                                break;
-                            default:
-                                echo "<p>Inconnue</p>";
-                        }
+                switch ($data->article_difficulty) {
+                    case "tresfacile":
+                        echo "<p>Très facile</p>";
+                        break;
+                    case "facile":
+                        echo "<p>Facile</p>";
+                        break;
+                    case "moyen":
+                        echo "<p>Moyen</p>";
+                        break;
+                    case "difficile":
+                        echo "<p>Difficile</p>";
+                        break;
+                    case "tresdifficile":
+                        echo "<p>Très difficile</p>";
+                        break;
+                    default:
+                        echo "<p>Inconnue</p>";
+                }
 
-                        echo " </div>
+                echo " </div>
                                 <a href='./article.php?id={$data->id}' class='cardButton' target='_blank'>Voir la recette</a>
                             </div>
                         </div>
                     </div>
                 ";
             }
-        ?>
+            ?>
         </div>
     </section>
 </main>

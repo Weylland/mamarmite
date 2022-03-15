@@ -7,7 +7,7 @@ include "./include/nav.php";
     <section id="accueilRecettes">
         <div id="accueilTitleContainer">
             <h2>
-                Les entrées
+                Votre recette
             </h2>
         </div>
         <div class="formContainer">
@@ -33,14 +33,14 @@ include "./include/nav.php";
                     <div class="formSmallGroup">
                         <label for="category">Type de plat</label>
                         <select name="article_category" id="category">
-                            <option value="1">Entrée</option>
-                            <option value="2">Plat</option>
-                            <option value="3">Dessert</option>
-                            <option value="4">Boisson</option>
+                            <option value="entre">Entrée</option>
+                            <option value="plat">Plat</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="boisson">Boisson</option>
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="formBigGroup">
                     <!-- DUREE  -->
                     <div class="formSmallGroup">
@@ -50,29 +50,29 @@ include "./include/nav.php";
 
                     <!-- DIFFICULTE -->
                     <div class="formSmallGroup">
-                        <label for="difficulty">Difficulté</label>
-                        <select name="difficulty" id="articleDifficulty">
-                            <option value="1">Très facile</option>
-                            <option value="2">Facile</option>
-                            <option value="3">Moyen</option>
-                            <option value="4">Difficile</option>
-                            <option value="5">Très difficile</option>
+                        <label for="articleDifficulty">Difficulté</label>
+                        <select name="article_difficulty" id="articleDifficulty">
+                            <option value="tresfacile">Très facile</option>
+                            <option value="facile">Facile</option>
+                            <option value="moyen">Moyen</option>
+                            <option value="difficile">Difficile</option>
+                            <option value="tresdifficile">Très difficile</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- INGREDIENTS  -->
                 <label for="ingredients">Ingrédients</label>
-                <textarea  name="article_ingredients" id="ingredients" maxlenght="500">Les ingrédients</textarea>
+                <textarea name="article_ingredients" id="ingredients" maxlenght="500">Les ingrédients</textarea>
 
                 <!-- PREPARATION  -->
                 <label for="preparation">Préparation</label>
-                <textarea  name="article_preparation" id="preparation">Les étapes</textarea>
+                <textarea name="article_preparation" id="preparation">Les étapes</textarea>
 
                 <button type="submit">Envoyer</button>
             </form>
         </div>
-        
+
     </section>
 </main>
 
