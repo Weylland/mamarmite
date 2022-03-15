@@ -4,13 +4,14 @@
     </div>
     <div class="navLeft">
         <ul class="menu">
-            <li><a href="">Accueil</a></li>
+            <li><a href="../index.php">Accueil</a></li>
             <li id="navDropdown">Les recettes &nbsp;
                 <div id="navDropdownList" class="hide">
                     <ul>
-                        <li><a href="#">Recettes sucrées</a></li>
-                        <li><a href="#">Recettes salées</a></li>
-                        <li><a href="#">Autres recettes</a></li>
+                        <li><a href="../entree.php">Entrée</a></li>
+                        <li><a href="../plat.php">Plat</a></li>
+                        <li><a href="../dessert.php">Dessert</a></li>
+                        <li><a href="../boisson.php">Boisson</a></li>
                     </ul>
                 </div>
             </li>
