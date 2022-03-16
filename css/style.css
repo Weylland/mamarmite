@@ -386,7 +386,9 @@ footer a {
 }
 .cardImg img {
   width: 100%;
+  height: 100%;
   border-radius: 5px 5px 0 0;
+  object-fit: cover;
 }
 
 .cardTitle {
@@ -569,6 +571,58 @@ input::placeholder {
 
 .formContainer button:hover {
   background: var(--color5);
+}
+
+/* ----- PAGE ARTICLE ----- */
+
+.articleContainer {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.articleImg {
+  width: 100%;
+  height: 500px;
+  margin: auto;
+  background: var(--color6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleImg img {
+  display: block;
+  object-fit: cover;
+  height: 80%;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.articleIndication {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleNote,
+.articleDuration,
+.articleDifficulty {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.articleNote i {
+  margin: 0 4px;
+  color: var(--color1);
+}
+
+.articleDuration i,
+.articleDifficulty i {
+  margin-right: 15px;
+  font-size: 1.5em;
+  color: var(--color1);
 }
 
 /* MEDIA  */

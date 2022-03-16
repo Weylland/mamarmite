@@ -18,7 +18,7 @@ $results = $req->fetchAll();
             </div>
             <!-- ----- ARTICLE ----- -->
             <div class="articleContainer">
-                <div>
+                <div class="articleImg">
                     <img src="./asset/img/<?= $result->article_picture ?>" alt="">
                 </div>
                 <div class="articleIndication">
@@ -69,7 +69,29 @@ $results = $req->fetchAll();
                     </div>
                     <div class="articleDifficulty">
                         <i class="fa-solid fa-signal"></i>
-                        <p><?= $result->article_difficulty ?></p>
+                        <p>
+                        <?php
+                        switch ($result->article_difficulty) {
+                            case 'tresfacile':
+                                echo "Très facile";
+                                break;
+                            case 'facile':
+                                echo "Facile";
+                                break;
+                            case 'moyen':
+                                echo "Moyen";
+                                break;
+                            case 'difficile':
+                                echo "Difficile";
+                                break;
+                            case 'tresdifficile':
+                                echo "Très difficile";
+                                break;
+                            default:
+                                echo "Erreur";
+                        }
+                        ?>
+                        </p>
                     </div>
                 </div>
                 <div class="articleIngredient">
@@ -80,9 +102,6 @@ $results = $req->fetchAll();
                     <h2>Préparation</h2>
                     <p><?= $result->article_preparation ?></p>
                 </div>
-            </div>
-            <div>
-                <p>auteur : nom de l'auteur</p>
             </div>
         <?php endforeach ?>
     </section>

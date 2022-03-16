@@ -23,7 +23,8 @@ include "./include/nav.php";
                         <div class="fileInput">
                             <div class="labelWraper">
                                 <label for="articlePicture">Vos images</label>
-                                <input type="file" name="article_picture" id="articlePicture">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+                                <input type="file" name="article_picture" id="articlePicture" >
                             </div>
                         </div>
                     </div>

@@ -2,13 +2,17 @@
 require "./functions.php";
 
 $article_title = valid_donnees($_POST['article_title']);
-$article_picture = $_FILES['article_picture']['name'];
+$article_picture = basename($_FILES["article_picture"]["name"]);
 $article_duration = valid_donnees($_POST['article_duration']);
 $article_difficulty = valid_donnees($_POST['article_difficulty']);
 $article_ingredients = valid_donnees($_POST['article_ingredients']);
 $article_preparation = valid_donnees($_POST['article_preparation']);
 $article_category = valid_donnees($_POST['article_category']);
 $article_user_id = 1;
+
+$uploads_dir = '../asset/img';
+$tmp_name = $_FILES["article_picture"]["tmp_name"];
+move_uploaded_file($tmp_name, "{$uploads_dir}/{$article_picture}");
 
 
 require "./connexionBdd.php";
