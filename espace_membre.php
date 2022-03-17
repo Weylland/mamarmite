@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "./include/head.php";
 include "./include/nav.php";
 include "./php/connexionBdd.php";
@@ -10,7 +9,8 @@ $req->execute(
         'user_username' => $_SESSION['user_username']
     )
 );
-
+$result = $req->fetch(PDO::FETCH_ASSOC);
+$user_id = $result['id'];
 ?>
 
 <div class="gauchedroite_membre">
@@ -21,17 +21,11 @@ $req->execute(
         <br>
         <p class="titre2">Membre depuis le
 
-         <?php
-            while ($data = $req->fetch()) {
-                echo "<td>$data->user_creation_date</td>";
-            }
-        ?>
-        
-        <br><br>
-        <br><br>
-        <a class="ajout-article" href="./ajoutArticle.php">Ajouter un article</a>
-        <br><br>
-        <a href="php/deconnect.php">Déconnexion</a>
+            <?= $result['user_creation_date'] ?>
+
+            <br><br>
+            <br><br>
+            <a class="ajout-article" href="./ajoutArticle.php?id=<?= $user_id ?>">Ajouter un article</a>
         </p>
     </div>
 
@@ -43,7 +37,7 @@ $req->execute(
 
         <p class="titre1" style="color:black;">Mes articles publiés</p>
 
-        
+
         <fieldset>
             <table>
                 <tr>
@@ -56,11 +50,11 @@ $req->execute(
 
                 <?php
                 include "./php/connexionBdd.php";
-                $req = $pdo->query("SELECT * FROM articles");
+                $req = $pdo->query("SELECT * FROM articles WHERE article_user_id = $user_id ");
                 while ($data = $req->fetch()) {
                     echo "<br><tr> <td>$data->id</td> <td>$data->article_title</td> <td>$data->article_creation_date</td>";
                     echo "<td>";
-                    echo "<br><a class='ajout-article' href='./php/update_art.php?id=$data->id'>Modifier </a>";
+                    echo "<br><a class='ajout-article' href='./modifArticle.php?id=$data->id'>Modifier </a>";
                     echo "<br><br><a class='ajout-article' href='./php/delete_art.php?id=$data->id'>Supprimer</a><br><br>";
                     echo "</td></tr>";
                 }
@@ -72,7 +66,7 @@ $req->execute(
     </div>
 </div>
 
-    <?php
-    include "./include/footer.php";
+<?php
+include "./include/footer.php";
 
-    ?>
+?>

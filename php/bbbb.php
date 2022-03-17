@@ -1,6 +1,7 @@
 <?php
 require_once "functions.php";
 
+
 if (!empty($_POST)) {
     $errors = array();
 
@@ -28,12 +29,24 @@ if (!empty($_POST)) {
 
         require "./connexionBdd.php";
         session_start();
-        $req = $pdo->prepare("INSERT INTO users SET user_username = ?, user_last_name = ?, user_first_name = ?, user_mail = ?, user_password = ?, user_creation_date = NOW()");
-        $password = password_hash($_POST['user_password'], PASSWORD_BCRYPT);
-        $_SESSION['user_username'] = $_POST['user_username'];
-        $req->execute([$user_username, $user_last_name, $user_first_name, $user_mail, $password]);
-        header('location: ../conf.php');
 
-        exit();
+        $req = $pdo->prepare("SELECT * FROM users WHERE user_username = :user_username");
+        $req->execute(
+            array(
+                'user_username' => $_POST['user_username']
+            )
+        );
+        $count = $req->rowCount();
+        if ($count > 0) {
+            header('location: ../userExist.php');
+        } else {
+            $req = $pdo->prepare("INSERT INTO users SET user_username = ?, user_last_name = ?, user_first_name = ?, user_mail = ?, user_password = ?, user_creation_date = NOW()");
+            $password = password_hash($_POST['user_password'], PASSWORD_BCRYPT);
+            $_SESSION['user_username'] = $_POST['user_username'];
+            $req->execute([$user_username, $user_last_name, $user_first_name, $user_mail, $password]);
+            header('location: ../conf.php');
+
+            exit();
+        }
     }
 }

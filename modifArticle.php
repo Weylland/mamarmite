@@ -1,7 +1,14 @@
 <?php
 include "./include/head.php";
 include "./include/nav.php";
-
+$id = $_GET['id'];
+$req = $pdo->prepare("SELECT * FROM articles WHERE id = :id");
+$req->execute(
+    array(
+        'id' => $id
+    )
+);
+$result = $req->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <main>
@@ -12,10 +19,10 @@ include "./include/nav.php";
             </h2>
         </div>
         <div class="formContainer">
-            <form method="post" action="./php/newArticle.php?id=<?= $_GET['id'] ?>" enctype="multipart/form-data">
+            <form method="post" action="./php/changeArticle.php?id=<?= $id ?>" enctype="multipart/form-data">
                 <!-- NOM DE LA RECETTE  -->
                 <label for="articleTitle">Titre</label>
-                <input type="text" name="article_title" id="articleTitle" placeholder="Nom de la recette">
+                <input type="text" name="article_title" id="articleTitle" value="<?= $result['article_title'] ?>" require>
 
                 <div class="formBigGroup">
                     <!-- IMAGES  -->
@@ -25,7 +32,7 @@ include "./include/nav.php";
                             <div class="labelWraper">
                                 <label for="articlePicture">Vos images</label>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
-                                <input type="file" name="article_picture" id="articlePicture">
+                                <input type="file" name="article_picture" id="articlePicture" require>
                             </div>
                         </div>
                     </div>
@@ -47,7 +54,7 @@ include "./include/nav.php";
                     <!-- DUREE  -->
                     <div class="formSmallGroup">
                         <label for="articleDuration">Durée de preparation</label>
-                        <input type="number" name="article_duration" id="articleDuration" placeholder="Durée en minute">
+                        <input type="number" name="article_duration" id="articleDuration" placeholder="Durée en minute" value="<?= $result['article_duration'] ?>" require>
                     </div>
 
                     <!-- DIFFICULTE -->
@@ -65,11 +72,11 @@ include "./include/nav.php";
 
                 <!-- INGREDIENTS  -->
                 <label for="ingredients">Ingrédients</label>
-                <textarea name="article_ingredients" id="ingredients" maxlenght="500">Les ingrédients</textarea>
+                <textarea name="article_ingredients" id="ingredients" maxlenght="500" require><?= $result['article_ingredients'] ?></textarea>
 
                 <!-- PREPARATION  -->
                 <label for="preparation">Préparation</label>
-                <textarea name="article_preparation" id="preparation">Les étapes</textarea>
+                <textarea name="article_preparation" id="preparation" require><?= $result['article_preparation'] ?></textarea>
 
                 <button type="submit">Envoyer</button>
             </form>

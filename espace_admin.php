@@ -1,7 +1,6 @@
 <?php
-session_start();
-include "header.php";
-include "nav.php";
+include "./include/head.php";
+include "./include/nav.php";
 
 ?>
 
@@ -28,11 +27,6 @@ include "nav.php";
                 echo "<td>$data->user_creation_date</td>";
             }
             ?>
-
-            <br><br>
-            <br><br>
-            <a class="ajout-article" href="ajoutArticle.php">Ajouter un article</a>
-            <br><br><a href="./php/deconnect.php" style="color:white;">Déconnexion</a>
         </p>
     </div>
 
@@ -72,7 +66,7 @@ include "nav.php";
     </div>
 </div>
 
-    <?php
-    include "footer.php"
+<?php
+include "./include/footer.php"
 
-    ?>
+?>
