@@ -35,7 +35,7 @@ include "./include/nav.php";
                     <div class="formSmallGroup">
                         <label for="category">Type de plat</label>
                         <select name="article_category" id="category">
-                            <option value="entre">Entrée</option>
+                            <option value="entree">Entrée</option>
                             <option value="plat">Plat</option>
                             <option value="dessert">Dessert</option>
                             <option value="boisson">Boisson</option>
