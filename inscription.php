@@ -11,7 +11,7 @@ include "./include/nav.php"
 </div>
 
 <div class="contenu">
-    <form action="./php/bbbb.php" method="POST">
+    <form action="./php/insc_exec.php" method="POST">
 
         <label for="user_username">Nom d'utilisateur</label>
         <input type="text" name="user_username" id="user_username" required>

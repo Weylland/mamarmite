@@ -2,8 +2,6 @@
 require "./functions.php";
 $id = $_GET['id'];
 
-var_dump($_GET['id']);
-
 $article_title = valid_donnees($_POST['article_title']);
 $article_picture = basename($_FILES["article_picture"]["name"]);
 $article_duration = valid_donnees($_POST['article_duration']);

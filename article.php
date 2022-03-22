@@ -96,11 +96,11 @@ $results = $req->fetchAll();
                 </div>
                 <div class="articleIngredient">
                     <h2>Ingrédients</h2>
-                    <p><?= $result->article_ingredients ?></p>
+                    <p><?= nl2br($result->article_ingredients) ?></p>
                 </div>
                 <div class="articlePreparation">
                     <h2>Préparation</h2>
-                    <p><?= $result->article_preparation ?></p>
+                    <p><?= nl2br($result->article_preparation) ?></p>
                 </div>
             </div>
         <?php endforeach ?>

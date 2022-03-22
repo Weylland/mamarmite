@@ -473,7 +473,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.labelWraper,
 textarea,
 input,
 select {
@@ -516,7 +515,6 @@ textarea {
   width: 50%;
   height: 50px;
   padding: 0;
-  height: 100%;
   background: var(--color1);
   border-radius: 5px;
   cursor: pointer;
@@ -653,43 +651,6 @@ button:hover,
 
 } 
 
-/* button {
-  display: block;
-  width: 250px;
-  height: 52px;
-  border-radius: 5px;
-  background: var(--color1);
-  border: none;
-  margin: 60px auto 0;
-  cursor: pointer;
-  color: var(--color2);
-  font-size: 1em;
-  font-family: "roboto-medium", sans-serif;
-} */
-
-/* .titre { */
-  /* présent également sur inscription.php */
-  /* margin-top: 10%;
-  margin-bottom: 5%;
-  text-align: center;
-  font-family: "Courgette", cursive;
-  font-size: 40px;
-  color: black;
-} */
-
-/* button { */
-  /* présent également sur inscription.php */
-  /*   font-family: "roboto-medium", sans-serif;
-  font-weight: bold;
-  background: #676fa3;
-  color: white;
-  padding: 3%;
-  font-size: 18px;
-  border-radius: 20px;
-  border: 1px solid;
-  cursor: pointer;
-} */
-
 .ajout-article {
   font-family: "roboto-medium", sans-serif;
   font-weight: bold;
@@ -740,9 +701,11 @@ button:hover,
 }
 
 .texte1 {
-  margin-top: 10%;
-  margin-bottom: 5%;
-  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: "Roboto", cursive;
   font-size: 25px;
   color: black;
@@ -768,6 +731,11 @@ button:hover,
   width: 50%;
 }
 
+.modifAvatar {
+  margin: 50px auto;
+  width: 250px;
+}
+
 td {
     font-family: "roboto-medium", sans-serif;
   font-size: 18px;
@@ -778,6 +746,26 @@ td {
 fieldset {
   width: 80%;
   margin: 0 auto;
+}
+
+.button1 {
+  display: inline-block;
+  width: 100px;
+  height: 52px;
+  border-radius: 5px;
+  background: var(--color1);
+  border: none;
+  margin: 2px auto;
+  cursor: pointer;
+  color: var(--color2);
+  font-size: 0.8em;
+  font-family: "roboto-medium", sans-serif;
+  text-align: center;
+  padding-top: 16px;
+}
+
+.button1:hover {
+  background: var(--color5);
 }
 
 /* --------------- FIN ESPACE_MEMBRE.PHP ------------------ */

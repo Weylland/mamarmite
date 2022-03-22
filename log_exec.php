@@ -4,7 +4,7 @@ include './include/nav.php';
 ?>
 
 
-<p class="texte1">
+<div class="texte1">
     <?php
 
     require 'php/connexionBdd.php';
@@ -36,7 +36,10 @@ include './include/nav.php';
                         echo "Erreur. <br><br>";
                     }
                 } else {
-                    echo "Mot de passe incorrect <br><br> <a href='connexion.php'><button type='submit' name='submit'>Réessayez</button></a>";
+                    echo "
+                        <p>Mot de passe incorrect</p> 
+                        <br><br> 
+                        <a href='connexion.php'><button type='submit' name='submit'>Réessayez</button></a>";
                 }
             } else {
                 echo "Nom d'utilisateur incorrect <br><br> <a href='connexion.php'><button type='submit' name='submit'>Réessayez</button></a>";
@@ -44,7 +47,7 @@ include './include/nav.php';
         }
     }
     ?>
-</p>
+</div>
 <?php
 include './include/footer.php';
 ?>

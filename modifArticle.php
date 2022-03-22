@@ -22,7 +22,7 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
             <form method="post" action="./php/changeArticle.php?id=<?= $id ?>" enctype="multipart/form-data">
                 <!-- NOM DE LA RECETTE  -->
                 <label for="articleTitle">Titre</label>
-                <input type="text" name="article_title" id="articleTitle" value="<?= $result['article_title'] ?>" require>
+                <input type="text" name="article_title" id="articleTitle" value="<?= $result['article_title'] ?>" required>
 
                 <div class="formBigGroup">
                     <!-- IMAGES  -->
@@ -32,7 +32,7 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
                             <div class="labelWraper">
                                 <label for="articlePicture">Vos images</label>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
-                                <input type="file" name="article_picture" id="articlePicture" require>
+                                <input type="file" name="article_picture" id="articlePicture" required>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
                     <!-- DUREE  -->
                     <div class="formSmallGroup">
                         <label for="articleDuration">Durée de preparation</label>
-                        <input type="number" name="article_duration" id="articleDuration" placeholder="Durée en minute" value="<?= $result['article_duration'] ?>" require>
+                        <input type="number" name="article_duration" id="articleDuration" placeholder="Durée en minute" value="<?= $result['article_duration'] ?>" required>
                     </div>
 
                     <!-- DIFFICULTE -->
@@ -72,11 +72,11 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
 
                 <!-- INGREDIENTS  -->
                 <label for="ingredients">Ingrédients</label>
-                <textarea name="article_ingredients" id="ingredients" maxlenght="500" require><?= $result['article_ingredients'] ?></textarea>
+                <textarea name="article_ingredients" id="ingredients" maxlength="5000" required><?= $result['article_ingredients'] ?></textarea>
 
                 <!-- PREPARATION  -->
                 <label for="preparation">Préparation</label>
-                <textarea name="article_preparation" id="preparation" require><?= $result['article_preparation'] ?></textarea>
+                <textarea name="article_preparation" id="preparation" maxlength="5000" required><?= $result['article_preparation'] ?></textarea>
 
                 <button type="submit">Envoyer</button>
             </form>

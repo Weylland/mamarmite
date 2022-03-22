@@ -16,7 +16,7 @@ $user_id = $result['id'];
 <div class="gauchedroite_membre">
 
     <div class="gauche_membre">
-        <p align="center"><img class="avatar" src="./asset/img/profil-img/avatar.png"></p>
+        <p align="center"><img class="avatar" src="./asset/img/profil-img/<?= $result['user_profile_picture'] ?>"></p>
         <p class="titre1"><b><?= $_SESSION['user_username'] ?></b></p>
         <br>
         <p class="titre2">Membre depuis le
@@ -26,6 +26,18 @@ $user_id = $result['id'];
             <br><br>
             <br><br>
             <a class="ajout-article" href="./ajoutArticle.php?id=<?= $user_id ?>">Ajouter un article</a>
+            <br><br>
+            <br><br>
+            <a class="ajout-article" href="./update_membre.php?id=<?= $user_id ?>">Modifier info</a>
+
+            <br><br>
+            <form action="./php/change_profile_pic_membre.php?id=<?= $user_id ?>" method="POST" enctype="multipart/form-data" class="modifAvatar">
+                <label for="profilPicture" style="color:white;">Vos images</label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" >
+                <input type="file" style="color:white;" name="user_profile_picture" id="profilPicture">
+                <button>envoyer</button>
+            </form>
+
         </p>
     </div>
 
@@ -54,8 +66,8 @@ $user_id = $result['id'];
                 while ($data = $req->fetch()) {
                     echo "<br><tr> <td>$data->id</td> <td>$data->article_title</td> <td>$data->article_creation_date</td>";
                     echo "<td>";
-                    echo "<br><a class='ajout-article' href='./modifArticle.php?id=$data->id'>Modifier </a>";
-                    echo "<br><br><a class='ajout-article' href='./php/delete_art.php?id=$data->id'>Supprimer</a><br><br>";
+                    echo "<br><a class='button1' href='./modifArticle.php?id=$data->id'>Modifier </a>";
+                    echo "<br><br><a class='button1' href='./php/delete_art.php?id=$data->id'>Supprimer</a><br><br>";
                     echo "</td></tr>";
                 }
 
